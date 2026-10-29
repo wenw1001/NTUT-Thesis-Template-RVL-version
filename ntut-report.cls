@@ -525,12 +525,12 @@
 }
 \newenvironment{EnAbstract}
 {
-    \chapter*{ABSTRACT}
+    \chapter*{Abstract}
     \vspace{0.5cm}
     \
     \begin{spacing}{2}
     \phantomsection % for hyperref to register this
-    \addcontentsline{toc}{chapter}{ABSTRACT}
+    \addcontentsline{toc}{chapter}{Abstract}
 }
 {
     \end{spacing}
@@ -699,29 +699,6 @@
 \newlength\belowcaptionskip
 \setlength\abovecaptionskip{10\p@}
 \setlength\belowcaptionskip{0\p@}
-
-\newcommand{\ntut@captionstretch}{1}
-\newcommand{\ntut@prevcaptionstretch}{1}
-\newcommand{\ntut@applycaptionstretch}{%
-  \normalsize
-  \setstretch{\ntut@captionstretch}%
-  \selectfont
-}
-
-% Capture current body spacing at float start
-\AtBeginDocument{%
-  \let\ntut@orig@float\@float
-  \def\@float#1{%
-    \global\edef\ntut@captionstretch{\baselinestretch}%
-    \ntut@orig@float{#1}%
-  }%
-  \let\ntut@orig@dblfloat\@dblfloat
-  \def\@dblfloat#1{%
-    \global\edef\ntut@captionstretch{\baselinestretch}%
-    \ntut@orig@dblfloat{#1}%
-  }%
-}
-
 \long\def\@makecaption#1#2{%
   \vskip\abovecaptionskip
   \sbox\@tempboxa{#1 #2}%
@@ -754,9 +731,9 @@
     \chapter*{\contentsname
         \@mkboth{%
            \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
-    \addcontentsline{toc}{chapter}{目錄}
     \@starttoc{toc}%
     \if@restonecol\twocolumn\fi
+    \addcontentsline{toc}{chapter}{目錄}
     }
 \newcommand*\l@part[2]{%
   \ifnum \c@tocdepth >-2\relax
@@ -803,7 +780,7 @@
       \@restonecolfalse
     \fi
     \chapter*{\listfigurename}%
-    \addcontentsline{toc}{chapter}{圖目錄}%
+    % \addcontentsline{toc}{chapter}{圖目錄}% % 目錄頁面不要列出圖目錄
       \@mkboth{\MakeUppercase\listfigurename}%
               {\MakeUppercase\listfigurename}%
     \@starttoc{lof}%
@@ -817,7 +794,7 @@
       \@restonecolfalse
     \fi
     \chapter*{\listtablename}%
-    \addcontentsline{toc}{chapter}{表目錄}%
+    % \addcontentsline{toc}{chapter}{表目錄}% % 目錄頁面不要列出表目錄
       \@mkboth{%
           \MakeUppercase\listtablename}%
          {\MakeUppercase\listtablename}%
