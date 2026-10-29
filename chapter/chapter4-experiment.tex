@@ -1,0 +1,45 @@
+\begin{ZhChapter}
+
+\chapter{實驗成果}
+\label{chap:experiment}
+
+\section{實驗設定（小標）}
+
+內文內文內文內文內文內文\cite{latex2e}，內文內文內文內文內文內文。內文內文內文內文：
+\begin{equation}
+    E = \frac{1}{N}\sum_{i=1}^{N} \left\| \hat{x}_i - x_i \right\|_2 ,
+    \label{eq:metric}
+\end{equation}
+其中 $N$ 為符號說明，$\hat{x}_i$ 與 $x_i$ 為符號說明。
+
+\section{實驗結果（小標）}
+
+內文內文內文內文內文內文，內文內文內文內文如表~\ref{tab:exp-compare}~所示。
+
+\begin{table}[htbp]
+    \centering
+    \caption{比較表格範例標題。粗體表示最佳結果。}
+    \label{tab:exp-compare}
+    \renewcommand\arraystretch{1.2}
+    \begin{tabular}{| l | c | c |}
+        \hline
+        Method & 指標一 $\downarrow$ & 指標二 $\downarrow$ \\
+        \hline
+        方法 A~\cite{latex2e} & 0.50 & 1.50 \\
+        方法 B~\cite{latex2e} & 0.30 & 1.00 \\
+        \hline
+        Ours & \textbf{0.10} & \textbf{0.80} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+內文內文內文內文內文內文內文內文如圖~\ref{fig:exp-visual}~所示。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{image.jpeg}
+    \caption{視覺化結果範例標題}
+    \label{fig:exp-visual}
+\end{figure}
+
+\end{ZhChapter}
