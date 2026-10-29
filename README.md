@@ -2,6 +2,10 @@
 
 基於 XeLaTeX 的北科論文模板。
 
+Forked from https://github.com/c1ydehhx/NTUT-Thesis-Template
+
+這是 RVL 版本，相較於原模板，新增了第三～五章與兩個附錄（論文口試問題彙整、系統技術分析與未來展望）。附錄僅供實驗室自行留存，於北科系統上傳論文時，請在 `main.tex` 中註解掉 `\include{page/appendix-QA}` 與 `\include{page/appendix-analysis}`。
+
 喜歡的話就點個右上角的星星：）
 
 ## 快速入門
@@ -28,61 +32,48 @@ sudo apt-get install texlive-full
 
 另外，你需要額外修改兩處：
 
-- 在 `page/abstract.tex` 與 `page/abstract-en.tex` 中，你需要在此撰寫您的論文頁數與關鍵字。
-- 在 `main.tex` 中，你可能需要修改字體的檔案，例如在 macOS 或 Linux 上似乎沒有標楷體。
+- 在 `page/abstract.tex` 與 `page/abstract-en.tex` 中，你需要在此撰寫您的論文摘要與關鍵字。
+- 在 `main.tex` 中，專案已附標楷體字型 `DFKai-SB.ttf` 並預設使用它；如需改用系統字型，請修改 `\setCJKmainfont`。
 
 ### 編譯 .tex 檔案
-
-#### 1. 使用 Make 指令
-
-如果你沒有安裝 make，可以先安裝以下指令：
-
-```bash
-brew install make # macOS
-sudo apt install make # Ubuntu
-```
-
-- 編譯產生論文 pdf 檔案：`make` 或是 `make all`
-- 刪除編譯產生的檔案：`make clean`
-  
-#### 2. 使用 Shell Script
-
-不需要安裝其他指令，直接跑以下指令：
-
-```bash
-./build.sh
-```
-
-#### 3. 使用 XeLaTeX 的原始指令
 
 ```bash
 xelatex main
 bibtex main
 xelatex main
+xelatex main
 ```
 
 ## 檔案架構
 
-你可以隨意新增自己的章節，以及修改中文與英文 abstract 的頁數與關鍵字。
+你可以隨意新增自己的章節，以及修改中文與英文 abstract 的摘要與關鍵字。
 
 ```
 ./chapter
 ├── chapter1-introduction.tex <---- 章節一
-└── chapter2-related-work.tex <---- 章節二
+├── chapter2-related-work.tex <---- 章節二
+├── chapter3-method.tex <---------- 章節三
+├── chapter4-experiment.tex <------ 章節四
+└── chapter5-conclusion.tex <------ 章節五
 ./static-page
 └── signpage.pdf <----------------- 「學位論文口試委員會審定書」掃描檔
 ./page
 ├── abstract-en.tex <-------------- 英文 abstract
 ├── abstract.tex <----------------- 中文 abstract
+├── appendix-QA.tex <-------------- 附錄：論文口試問題彙整（RVL 自行留存）
+├── appendix-analysis.tex <-------- 附錄：系統技術分析與未來展望（RVL 自行留存）
 ├── blankpage.tex <---------------- 空白頁
 ├── reference.tex <---------------- 參考文獻
 ├── table-of-content.tex <--------- 各式各樣的目錄
 ├── thanks.tex <------------------- 致謝
 └── titlepage.tex <---------------- 首頁
+main.tex <------------------------- 主檔案，載入套件與各個章節
 ntut-labels.tex <------------------ 各式各樣的 label 設定值
 ntut-logo-with-label.png <--------- 北科 Logo（有國立臺北科技大學字樣）
+ntut-logo-with-label-eng.jpg <----- 北科 Logo（英文版）
 ntut-logo.png <-------------------- 北科 Logo 浮水印
-ntut-reports.cls <----------------- LaTeX 樣式
+ntut-report.cls <------------------ LaTeX 樣式
+DFKai-SB.ttf <--------------------- 標楷體字型
 reference.bib <-------------------- 參考文獻 bib 檔
 ```
 
