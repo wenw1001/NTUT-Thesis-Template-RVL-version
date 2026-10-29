@@ -1,0 +1,83 @@
+\begin{ZhChapter}
+
+\chapter{研究方法}
+\label{chap:method}
+
+本章內容本章內容本章內容本章內容，本章內容本章內容本章內容本章內容本章內容本章內容。第~\ref{sec:section1}~節內容內容內容，第~\ref{sec:section2}~節內容內容內容。
+
+%==================================================
+\section{第一節標題（小標）}
+\label{sec:section1}
+
+內文內文內文內文內文內文\cite{latex2e}，內文內文內文內文內文內文內文內文，內文內文內文內文內文內文內文內文內文內文。內文內文內文內文如式~\eqref{eq:example1}~所示：
+\begin{equation}
+    y = f(x) + b,
+    \label{eq:example1}
+\end{equation}
+其中 $x$ 為符號說明符號說明，$b$ 為符號說明符號說明。
+
+內文內文內文內文內文內文內文內文如圖~\ref{fig:example}~所示，內文內文內文內文內文內文內文內文內文內文內文內文。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{image.jpeg}
+    \caption{圖片範例標題}
+    \label{fig:example}
+\end{figure}
+
+內文內文內文內文內文內文內文內文整理於表~\ref{tab:example1}。
+
+\begin{table}[htbp]
+    \centering
+    \caption{表格範例標題一}
+    \label{tab:example1}
+    \renewcommand\arraystretch{1.2}
+    \begin{tabular}{| c | l |}
+        \hline
+        符號 & 說明 \\
+        \hline
+        $a$ & 說明說明說明 \\
+        $b$ & 說明說明說明說明 \\
+        $c$ & 說明說明 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+%==================================================
+\section{第二節標題（小標）}
+\label{sec:section2}
+
+\subsection{第一小節標題}
+
+內文內文內文內文內文內文，內文內文內文內文內文內文內文內文內文內文內文內文內文內文。內文內文內文內文：
+\begin{equation}
+    z_i = \frac{\exp(x_i)}{\sum_{j=1}^{N}\exp(x_j)},
+    \label{eq:example2}
+\end{equation}
+其中 $N$ 為符號說明符號說明。
+
+\subsection{第二小節標題}
+
+內文內文內文內文內文內文內文內文內文內文，內文內文內文內文內文內文內文內文：
+\begin{equation}
+    \mathcal{L} = \alpha \mathcal{L}_1 + \beta \mathcal{L}_2,
+    \label{eq:example3}
+\end{equation}
+其中 $\alpha$ 與 $\beta$ 為符號說明符號說明。內文內文內文內文如表~\ref{tab:example2}~所示。
+
+\begin{table}[htbp]
+    \centering
+    \caption{表格範例標題二}
+    \label{tab:example2}
+    \renewcommand\arraystretch{1.2}
+    \begin{tabular}{| l | c | c | c |}
+        \hline
+        項目 & 欄位一 & 欄位二 & 欄位三 \\
+        \hline
+        項目 A & 1 & 10 & 0.6 \\
+        項目 B & 1 & 1  & 0.4 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\end{ZhChapter}
