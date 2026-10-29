@@ -13,23 +13,45 @@
 \usepackage{zhnumber}
 \usepackage{titlesec}
 \usepackage{amsmath}
-\usepackage[backend=bibtex,sorting=none]{biblatex}
+\usepackage{amssymb}
+\usepackage{multirow}
 \usepackage{tabularx}
-\usepackage{csquotes}
+\usepackage{caption}
 \usepackage{subcaption}
-
-\MakeAutoQuote{“}{”}
-\MakeOuterQuote{"}
-
-\captionsetup{justification=centering,singlelinecheck=false,font={normalsize,stretch=2}}
-\captionsetup[sub]{justification=centering,singlelinecheck=false,font={normalsize,stretch=2}}
+\usepackage[backend=bibtex,sorting=none]{biblatex}   
 
 \renewcommand{\baselinestretch}{1.5}
 \xeCJKsetup{AutoFakeBold=true, AutoFakeSlant=true}
 \setCJKmainfont{DFKai-SB.ttf} % 中文字體
 \setmainfont{Times New Roman} % 英文字體
 \geometry{a4paper,total={297mm,210mm},top=4.5cm,bottom=0.75cm,left=2.5cm,right=2.5cm} % 頁面設定，不需修改
-\pagestyle{plain} % 頁碼
+% \pagestyle{plain} % 頁碼
+
+\captionsetup[table]{skip=6pt}
+\hypersetup{%
+    colorlinks=true,% switch on coloured instead of framed links
+    linkcolor=[rgb]{0.713,0.188,0.09},% main link color (e.g. for the ToC)182,48,23
+    filecolor=magenta,% color of links to external files
+    urlcolor=red,% color to external URLs
+}
+%% ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼  頁首頁尾  ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+\fancypagestyle{normal_chapter}{%
+    \renewcommand{\headrulewidth}{0.5pt}
+    \addtolength{\headwidth}{\marginparsep}
+    \addtolength{\headwidth}{\marginparwidth}
+    % \addtolength{\headwidth}{-66mm}
+    %% 頁首 - 右
+    \rhead[\fancyplain{}{\bfseries\leftmark}]{%
+        \fancyplain{}{\bfseries\thepage}
+    }
+    %% 頁首 - 左
+    \lhead[\fancyplain{}{\bfseries\thepage}]{%
+        \fancyplain{}{\bfseries\rightmark}
+    }
+    \cfoot{\thepage}
+}
+%% ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲  頁首頁尾  ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+
 \addbibresource{reference.bib}
 
 \input{ntut-labels.tex}
@@ -45,7 +67,7 @@
 \CenterWallPaper{.64}{ntut-logo.png}
 
 % 封面、要浮水印 Cover with a watermark
-\input{page/titlepage.tex}
+\clearpage\input{page/titlepage.tex}\clearpage
 % 「學位論文口試委員會審定書」掃描檔，請檢附完整簽名之審定書掃描檔
 % Please add "Oral Defense Committee Signature Form" with complete signatures.
 \includepdf[pages=-]{static-page/signpage.pdf}
@@ -64,13 +86,28 @@
  
 \pagenumbering{arabic}
 
+\pagestyle{normal_chapter}
+
 % 章節一 Chapter 1
-\include{chapter/chapter1-introduction.tex}
+\include{chapter/chapter1-introduction}
 % 章節二 Chapter 2
-\include{chapter/chapter2-related-work.tex}
+\include{chapter/chapter2-related-work}
+% 章節三 Chapter 3
+\include{chapter/chapter3-method}
+% 章節四 Chapter 4
+\include{chapter/chapter4-experiment}
+% 章節五 Chapter 5
+\include{chapter/chapter5-conclusion}
 % 新增你自己的章節... Add chapters here
 
 % 參考文獻，請在段落上隨意註解，你同時需要 reference.bib
 \include{page/reference}
+
+% RVL自行留存版本須額外加入附錄，於北科系統上傳論文時請註解掉以下附錄
+% 附錄一 論文口試問題彙整
+\include{page/appendix-QA} 
+% 附錄二 系統技術分析與未來展望。分析本研究利弊，以及更詳細的未來實作規劃
+\include{page/appendix-analysis} 
+% 若有額外的重要實驗結果與討論可以自行新增附錄說明... Add appendices here
 
 \end{document}
